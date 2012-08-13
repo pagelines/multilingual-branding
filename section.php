@@ -4,7 +4,7 @@
 	Author: Aleksander Hansson
 	Author URI: http://apple-blog.dk
 	Version: 1.0
-	Description: Do you have a multilingual site or do you just want to welcome your foreign visitors with a logo in their language. Then this is the section you need! Multilingual  Branding automtically detects the users browserlanguage and if you have uploaded a logo in thier language the logo will show just as the normal logo would. Multilingual Branding supports up to 5 languages and works well with WPML.
+	Description: Do you have a multilingual site or do you just want to welcome your foreign visitors with a logo in their language. Then this is the section you need. Multilingual  Branding automtically detects the users browserlanguage and if you have uploaded a logo in thier language the logo will show just as the normal logo would. Multilingual Branding supports up to 5 languages and works well with WPML.
 	Class Name: MultilingualBranding
 	Workswith: header 
 */
@@ -16,123 +16,120 @@
  * @author Aleksander Hansson
  */
 
-	// add action to settings
-	add_action( 'admin_init', 'multilingual_branding_settings' );
-	/**
-	* Function for loading custom settings
-	*/
-
-	
-	function multilingual_branding_settings() {
-		
-	$icon_path = sprintf( '%s/%s/%s', WP_PLUGIN_URL, 'pagelines-sections', basename(dirname( __FILE__ )));
-				
-		$options = array(
-		// icon for the settings tab
-		'icon' => $icon_path . '/settings-icon.png',
-			//language 1 settings
-			'language_1'			=>	array(
-			'default'				=>	'',
-			'type'					=>	'multi_option',
-			'title' 				=> 	__('1st language options', 'pagelines'),
-			'selectvalues'			=>	array(
-				'language_1_code'	=> 	array(
-					'default' 		=> 	'',
-					'type' 			=> 	'text',
-					'inputlabel' 	=> 	__('Type your 1st language code: "en" for English. This is also DEFAULT language if no languages matches users browser language!', 'pagelines'),
-					),				
-				'language_1_logo'	=> array(
-					'default'         	=> '',
-					'type'             	=> 'image_upload',
-					'imagepreview'     	=> '270',
-					'inputlabel'     	=> __( 'Upload 1st language logo. This is also DEFAULT logo if no languages matches users browser language!', 'pagelines' ),
-					'shortexp'         	=> __( 'Input Full URL to your 1st language logo.', 'pagelines' ),
-			))),
-			//language 2 settings
-			'language_2'			=>	array(
-			'default'				=>	'',
-			'type'					=>	'multi_option',
-			'title' 				=> 	__('2nd language options', 'pagelines'),
-			'selectvalues'			=>	array(
-				'language_2_code'	=> 	array(
-					'default' 		=> 	'',
-					'type' 			=> 	'text',
-					'inputlabel' 	=> 	__('Type your 2nd language code: "fr" for French', 'pagelines'),
-					),				
-				'language_2_logo'	=> array(
-					'default'         	=> '',
-					'type'             	=> 'image_upload',
-					'imagepreview'     	=> '270',
-					'inputlabel'     	=> __( 'Upload 2nd language logo', 'pagelines' ),
-					'shortexp'         	=> __( 'Input Full URL to your 2nd language logo.', 'pagelines' ),			
-			))),
-			//language 3 settings
-			'language_3'			=>	array(
-			'default'				=>	'',
-			'type'					=>	'multi_option',
-			'title' 				=> 	__('3rd language options', 'pagelines'),
-			'selectvalues'			=>	array(
-				'language_3_code'	=> 	array(
-					'default' 		=> 	'',
-					'type' 			=> 	'text',
-					'inputlabel' 	=> 	__('Type your 3rd language code: "es" for Spanish', 'pagelines'),
-					),				
-				'language_3_logo'	=> array(
-					'default'         	=> '',
-					'type'             	=> 'image_upload',
-					'imagepreview'     	=> '270',
-					'inputlabel'     	=> __( 'Upload 3rd language logo', 'pagelines' ),
-					'shortexp'         	=> __( 'Input Full URL to your 3rd language logo.', 'pagelines' ),			
-			))),
-			//language 4 settings
-			'language_4'			=>	array(
-			'default'				=>	'',
-			'type'					=>	'multi_option',
-			'title' 				=> 	__('4th language options', 'pagelines'),
-			'selectvalues'			=>	array(
-				'language_4_code'	=> 	array(
-					'default' 		=> 	'',
-					'type' 			=> 	'text',
-					'inputlabel' 	=> 	__('Type your 4th language code: "de" for Deutsch', 'pagelines'),
-					),				
-				'language_4_logo'	=> array(
-					'default'         	=> '',
-					'type'             	=> 'image_upload',
-					'imagepreview'     	=> '270',
-					'inputlabel'     	=> __( 'Upload 4th language logo', 'pagelines' ),
-					'shortexp'         	=> __( 'Input Full URL to your 4th language logo.', 'pagelines' ),			
-			))),			
-			//language 5 settings
-			'language_5'			=>	array(
-			'default'				=>	'',
-			'type'					=>	'multi_option',
-			'title' 				=> 	__('5th language options', 'pagelines'),
-			'selectvalues'			=>	array(
-				'language_5_code'	=> 	array(
-					'default' 		=> 	'',
-					'type' 			=> 	'text',
-					'inputlabel' 	=> 	__('Type your 5th language code: "da" for Danish', 'pagelines'),
-					),				
-				'language_5_logo'	=> array(
-					'default'         	=> '',
-					'type'             	=> 'image_upload',
-					'imagepreview'     	=> '270',
-					'inputlabel'     	=> __( 'Upload 5th language logo', 'pagelines' ),
-					'shortexp'         	=> __( 'Input Full URL to your 5th language logo.', 'pagelines' ),			
-			))),
-		);
-// add options page to pagelines settings
-pl_add_options_page( array( 'name' => 'multilingual_branding', 'array' => $options ) );
-}
-
-
 class MultilingualBranding extends PageLinesSection {
+
+
+	function __construct() {
+		
+		// add action to settings
+		add_action( 'admin_init', array( &$this, 'multilingual_branding_settings' ) );
+	}
+		
+		function multilingual_branding_settings() {
+
+		$icon_path = sprintf( '%s/%s/%s', WP_PLUGIN_URL, 'pagelines-sections', basename(dirname( __FILE__ )));
+
+			$options = array(
+			// icon for the settings tab
+			'icon' => $icon_path . '/settings-icon.png',
+				//language 1 settings
+				'language_1'			=>	array(
+				'default'				=>	'',
+				'type'					=>	'multi_option',
+				'title' 				=> 	__('1st language options', 'pagelines'),
+				'selectvalues'			=>	array(
+					'language_1_code'	=> 	array(
+						'default' 		=> 	'',
+						'type' 			=> 	'text',
+						'inputlabel' 	=> 	__('Type your 1st language code: "en" for English. This is also DEFAULT language if no languages matches users browser language!', 'pagelines'),
+						),				
+					'language_1_logo'	=> array(
+						'default'         	=> '',
+						'type'             	=> 'image_upload',
+						'imagepreview'     	=> '270',
+						'inputlabel'     	=> __( 'Upload 1st language logo. This is also DEFAULT logo if no languages matches users browser language!', 'pagelines' ),
+						'shortexp'         	=> __( 'Input Full URL to your 1st language logo.', 'pagelines' ),
+				))),
+				//language 2 settings
+				'language_2'			=>	array(
+				'default'				=>	'',
+				'type'					=>	'multi_option',
+				'title' 				=> 	__('2nd language options', 'pagelines'),
+				'selectvalues'			=>	array(
+					'language_2_code'	=> 	array(
+						'default' 		=> 	'',
+						'type' 			=> 	'text',
+						'inputlabel' 	=> 	__('Type your 2nd language code: "fr" for French', 'pagelines'),
+						),				
+					'language_2_logo'	=> array(
+						'default'         	=> '',
+						'type'             	=> 'image_upload',
+						'imagepreview'     	=> '270',
+						'inputlabel'     	=> __( 'Upload 2nd language logo', 'pagelines' ),
+						'shortexp'         	=> __( 'Input Full URL to your 2nd language logo.', 'pagelines' ),			
+				))),
+				//language 3 settings
+				'language_3'			=>	array(
+				'default'				=>	'',
+				'type'					=>	'multi_option',
+				'title' 				=> 	__('3rd language options', 'pagelines'),
+				'selectvalues'			=>	array(
+					'language_3_code'	=> 	array(
+						'default' 		=> 	'',
+						'type' 			=> 	'text',
+						'inputlabel' 	=> 	__('Type your 3rd language code: "es" for Spanish', 'pagelines'),
+						),				
+					'language_3_logo'	=> array(
+						'default'         	=> '',
+						'type'             	=> 'image_upload',
+						'imagepreview'     	=> '270',
+						'inputlabel'     	=> __( 'Upload 3rd language logo', 'pagelines' ),
+						'shortexp'         	=> __( 'Input Full URL to your 3rd language logo.', 'pagelines' ),			
+				))),
+				//language 4 settings
+				'language_4'			=>	array(
+				'default'				=>	'',
+				'type'					=>	'multi_option',
+				'title' 				=> 	__('4th language options', 'pagelines'),
+				'selectvalues'			=>	array(
+					'language_4_code'	=> 	array(
+						'default' 		=> 	'',
+						'type' 			=> 	'text',
+						'inputlabel' 	=> 	__('Type your 4th language code: "de" for Deutsch', 'pagelines'),
+						),				
+					'language_4_logo'	=> array(
+						'default'         	=> '',
+						'type'             	=> 'image_upload',
+						'imagepreview'     	=> '270',
+						'inputlabel'     	=> __( 'Upload 4th language logo', 'pagelines' ),
+						'shortexp'         	=> __( 'Input Full URL to your 4th language logo.', 'pagelines' ),			
+				))),			
+				//language 5 settings
+				'language_5'			=>	array(
+				'default'				=>	'',
+				'type'					=>	'multi_option',
+				'title' 				=> 	__('5th language options', 'pagelines'),
+				'selectvalues'			=>	array(
+					'language_5_code'	=> 	array(
+						'default' 		=> 	'',
+						'type' 			=> 	'text',
+						'inputlabel' 	=> 	__('Type your 5th language code: "da" for Danish', 'pagelines'),
+						),				
+					'language_5_logo'	=> array(
+						'default'         	=> '',
+						'type'             	=> 'image_upload',
+						'imagepreview'     	=> '270',
+						'inputlabel'     	=> __( 'Upload 5th language logo', 'pagelines' ),
+						'shortexp'         	=> __( 'Input Full URL to your 5th language logo.', 'pagelines' ),			
+				))),
+			);
+	// add options page to pagelines settings
+	pl_add_options_page( array( 'name' => 'multilingual_branding', 'array' => $options ) );
+	}
 
 	/**
 	* Section template.
 	*/
-
-	
 	function section_template() { 
 
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
