@@ -1,0 +1,13 @@
+#multilanguage-branding .mainlogo-link, #multilanguage-branding .mainlogo-img {
+max-width: 100%;
+display: block;
+}
+
+.icons {
+text-align: right;
+position: absolute;
+bottom: 50% !important;
+right: 1px !important;
+line-height: 20px;
+height: 24px;
+}
