@@ -266,7 +266,7 @@ class MultilingualBranding extends PageLinesSection {
 				
 					}
 					
-			printf('</div></div>');
+					echo '</div></div>';
 					
 			pagelines_register_hook( 'pagelines_after_branding_wrap', 'branding' ); // Hook
 				
