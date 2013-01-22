@@ -1,5 +1,5 @@
 == Description ==
-<h3>What is Beefy Slider</h3>
+<h3>What is Multilingual Branding?</h3>
 
 Do you have a multilingual site or do you just want to welcome your foreign visitors with a logo in their language. Then this is the section you need. Multilingual Branding automtically detects the users browser language and if you have specified a logo in thier language, the logo will show just as the normal logo would. Multilingual Branding supports up to 5 languages and works well with WPML.
 
