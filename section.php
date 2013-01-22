@@ -2,9 +2,10 @@
 /*
 	Section: Multilingual Branding
 	Author: Aleksander Hansson
-	Author URI: http://apple-blog.dk
-	Version: 1.1
-	Description: Do you have a multilingual site or do you just want to welcome your foreign visitors with a logo in their language. Then this is the section you need. Multilingual  Branding automtically detects the users browserlanguage and if you have uploaded a logo in thier language the logo will show just as the normal logo would. Multilingual Branding supports up to 5 languages and works well with WPML.
+	Author URI: http://ahansson.com
+	Demo: http://mlbranding.ahansson.com
+	Version: 1.2
+	Description: Do you have a multilingual site or do you just want to welcome your foreign visitors with a logo in their language. Then this is the section you need. Multilingual Branding automtically detects the users browser language and if you have specified a logo in thier language, the logo will show just as the normal logo would. Multilingual Branding supports up to 5 languages and works well with WPML.
 	Class Name: MultilingualBranding
 	Workswith: header
 */
@@ -370,8 +371,7 @@ class MultilingualBranding extends PageLinesSection {
 		);
 		
 		register_metatab($tab_settings, $options, $this->class_name);
-		
-		
+			
 	}
 	
 }
