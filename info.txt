@@ -9,6 +9,10 @@ Please do not leave a review as a support question, they are for reviews. I am n
 
 == Changelog ==
 
+= 1.3 =
+* LESSified it
+* Fixed styling for icons opacity
+
 = 1.2 =
 * Added options for text logos
 * Code cleanup

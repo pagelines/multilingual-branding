@@ -4,7 +4,7 @@
 	Author: Aleksander Hansson
 	Author URI: http://ahansson.com
 	Demo: http://mlbranding.ahansson.com
-	Version: 1.2
+	Version: 1.3
 	Description: Do you have a multilingual site or do you just want to welcome your foreign visitors with a logo in their language. Then this is the section you need. Multilingual Branding automtically detects the users browser language and if you have specified a logo in thier language, the logo will show just as the normal logo would. Multilingual Branding supports up to 5 languages and works well with WPML.
 	Class Name: MultilingualBranding
 	Workswith: header
@@ -32,135 +32,135 @@ class MultilingualBranding extends PageLinesSection {
 			$clang = ICL_LANGUAGE_CODE;
 
 		} else {
-			
+
 			$clang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-			
+
 		}
 
     	if ($clang == ploption('language_1_code')) {
-    		
+
     		if (ploption('language_1_logo')) {
-    		
+
     			printf('<a class="mainlogo-link" href="%s" title="%s"><img class="mainlogo-img" src="%s" alt="Logo" /></a>',
     				esc_url(home_url()),
     				get_bloginfo('name'),
     				ploption('language_1_logo')
     			);
-    		
+
     		} else {
-    			
-    			printf( '<div class="title-container"><a class="home site-title" href="%s" title="%s">%s</a><h6 class="site-description subhead">%s</h6></div>', 
-    				esc_url(home_url()), 
-    				__('Home','pagelines'), 
-    				ploption('language_1_heading'), 
+
+    			printf( '<div class="title-container"><a class="home site-title" href="%s" title="%s">%s</a><h6 class="site-description subhead">%s</h6></div>',
+    				esc_url(home_url()),
+    				__('Home','pagelines'),
+    				ploption('language_1_heading'),
     				ploption('language_1_subheading')
     			);
-    		
-    		}	
-    		
+
+    		}
+
     	} elseif ($clang == ploption('language_2_code')) {
-    		
+
     		if (ploption('language_2_logo')) {
-    		
+
     			printf('<a class="mainlogo-link" href="%s" title="%s"><img class="mainlogo-img" src="%s" alt="Logo" /></a>',
     				esc_url(home_url()),
     				get_bloginfo('name'),
     				ploption('language_2_logo')
     			);
-    		
+
     		} else {
-    			
-    			printf( '<div class="title-container"><a class="home site-title" href="%s" title="%s">%s</a><h6 class="site-description subhead">%s</h6></div>', 
-    				esc_url(home_url()), 
-    				__('Home','pagelines'), 
-    				ploption('language_2_heading'), 
+
+    			printf( '<div class="title-container"><a class="home site-title" href="%s" title="%s">%s</a><h6 class="site-description subhead">%s</h6></div>',
+    				esc_url(home_url()),
+    				__('Home','pagelines'),
+    				ploption('language_2_heading'),
     				ploption('language_2_subheading')
     			);
-    		
+
     		}
-    	
-    	} elseif ($clang == ploption('language_3_code')) {		
-    			
+
+    	} elseif ($clang == ploption('language_3_code')) {
+
     		if (ploption('language_3_logo')) {
-    		
+
     			printf('<a class="mainlogo-link" href="%s" title="%s"><img class="mainlogo-img" src="%s" alt="Logo" /></a>',
     				esc_url(home_url()),
     				get_bloginfo('name'),
     				ploption('language_3_logo')
     			);
-    		
+
     		} else {
-    			
-    			printf( '<div class="title-container"><a class="home site-title" href="%s" title="%s">%s</a><h6 class="site-description subhead">%s</h6></div>', 
-    				esc_url(home_url()), 
-    				__('Home','pagelines'), 
-    				ploption('language_3_heading'), 
+
+    			printf( '<div class="title-container"><a class="home site-title" href="%s" title="%s">%s</a><h6 class="site-description subhead">%s</h6></div>',
+    				esc_url(home_url()),
+    				__('Home','pagelines'),
+    				ploption('language_3_heading'),
     				ploption('language_3_subheading')
     			);
-    		
-    		}	
-    	
+
+    		}
+
     	} elseif ($clang == ploption('language_4_code')) {
-    		
+
     		if (ploption('language_4_logo')) {
-    		
+
     			printf('<a class="mainlogo-link" href="%s" title="%s"><img class="mainlogo-img" src="%s" alt="Logo" /></a>',
     				esc_url(home_url()),
     				get_bloginfo('name'),
     				ploption('language_4_logo')
     			);
-    		
+
     		} else {
-    			
-    			printf( '<div class="title-container"><a class="home site-title" href="%s" title="%s">%s</a><h6 class="site-description subhead">%s</h6></div>', 
-    				esc_url(home_url()), 
-    				__('Home','pagelines'), 
-    				ploption('language_4_heading'), 
+
+    			printf( '<div class="title-container"><a class="home site-title" href="%s" title="%s">%s</a><h6 class="site-description subhead">%s</h6></div>',
+    				esc_url(home_url()),
+    				__('Home','pagelines'),
+    				ploption('language_4_heading'),
     				ploption('language_4_subheading')
     			);
-    		
-    		}	
+
+    		}
     	} elseif ($clang == ploption('language_5_code')) {
-    	
+
     		if (ploption('language_5_logo')) {
-    		
+
     			printf('<a class="mainlogo-link" href="%s" title="%s"><img class="mainlogo-img" src="%s" alt="Logo" /></a>',
     				esc_url(home_url()),
     				get_bloginfo('name'),
     				ploption('language_5_logo')
     			);
-    		
+
     		} else {
-    			
-    			printf( '<div class="title-container"><a class="home site-title" href="%s" title="%s">%s</a><h6 class="site-description subhead">%s</h6></div>', 
-    				esc_url(home_url()), 
-    				__('Home','pagelines'), 
-    				ploption('language_5_heading'), 
+
+    			printf( '<div class="title-container"><a class="home site-title" href="%s" title="%s">%s</a><h6 class="site-description subhead">%s</h6></div>',
+    				esc_url(home_url()),
+    				__('Home','pagelines'),
+    				ploption('language_5_heading'),
     				ploption('language_5_subheading')
     			);
-    		
+
     		}
-				
+
     	} else {
-    		
+
     		if (ploption('language_1_logo')) {
-    		
+
     			printf('<a class="mainlogo-link" href="%s" title="%s"><img class="mainlogo-img" src="%s" alt="Logo" /></a>',
     				esc_url(home_url()),
     				get_bloginfo('name'),
     				ploption('language_1_logo')
     			);
-    		
+
     		} else {
-    			
-    			printf( '<div class="title-container"><a class="home site-title" href="%s" title="%s">%s</a><h6 class="site-description subhead">%s</h6></div>', 
-    				esc_url(home_url()), 
-    				__('Home','pagelines'), 
-    				ploption('language_1_heading'), 
+
+    			printf( '<div class="title-container"><a class="home site-title" href="%s" title="%s">%s</a><h6 class="site-description subhead">%s</h6></div>',
+    				esc_url(home_url()),
+    				__('Home','pagelines'),
+    				ploption('language_1_heading'),
     				ploption('language_1_subheading')
     			);
-    		
-    		}	
+
+    		}
     	}
 		/**
 		 * The below is taken directly from PageLines Branding section.
@@ -169,32 +169,22 @@ class MultilingualBranding extends PageLinesSection {
 
 		printf('<div class="icons" style="bottom: %spx; right: %spx;">', intval(pagelines_option('icon_pos_bottom')), pagelines_option('icon_pos_right'));
 
-		pagelines_register_hook( 'pagelines_branding_icons_start', 'branding' ); // Hook
-
-		if(ploption('rsslink'))
+			pagelines_register_hook( 'pagelines_branding_icons_start', 'branding' ); // Hook
 
 			if(ploption('rsslink'))
 				printf('<a target="_blank" href="%s" class="rsslink"><img src="%s" alt="RSS"/></a>', apply_filters( 'pagelines_branding_rssurl', get_bloginfo('rss2_url') ), $this->base_url.'/rss.png' );
+			if(ploption('twitterlink'))
+				printf('<a target="_blank" href="%s" class="twitterlink"><img src="%s" alt="Twitter"/></a>', ploption('twitterlink'), $this->base_url.'/twitter.png');
+			if(ploption('facebooklink'))
+				printf('<a target="_blank" href="%s" class="facebooklink"><img src="%s" alt="Facebook"/></a>', ploption('facebooklink'), $this->base_url.'/facebook.png');
+			if(ploption('linkedinlink'))
+				printf('<a target="_blank" href="%s" class="linkedinlink"><img src="%s" alt="LinkedIn"/></a>', ploption('linkedinlink'), $this->base_url.'/linkedin.png');
+			if(ploption('youtubelink'))
+				printf('<a target="_blank" href="%s" class="youtubelink"><img src="%s" alt="Youtube"/></a>', ploption('youtubelink'), $this->base_url.'/youtube.png');
+			if(ploption('gpluslink'))
+				printf('<a target="_blank" href="%s" class="gpluslink"><img src="%s" alt="Google+"/></a>', ploption('gpluslink'), $this->base_url.'/google.png');
 
-			if(VPRO) {
-				if(ploption('twitterlink'))
-					printf('<a target="_blank" href="%s" class="twitterlink"><img src="%s" alt="Twitter"/></a>', ploption('twitterlink'), $this->base_url.'/twitter.png');
-
-				if(ploption('facebooklink'))
-					printf('<a target="_blank" href="%s" class="facebooklink"><img src="%s" alt="Facebook"/></a>', ploption('facebooklink'), $this->base_url.'/facebook.png');
-
-				if(ploption('linkedinlink'))
-					printf('<a target="_blank" href="%s" class="linkedinlink"><img src="%s" alt="LinkedIn"/></a>', ploption('linkedinlink'), $this->base_url.'/linkedin.png');
-
-				if(ploption('youtubelink'))
-					printf('<a target="_blank" href="%s" class="youtubelink"><img src="%s" alt="Youtube"/></a>', ploption('youtubelink'), $this->base_url.'/youtube.png');
-
-				if(ploption('gpluslink'))
-					printf('<a target="_blank" href="%s" class="gpluslink"><img src="%s" alt="Google+"/></a>', ploption('gpluslink'), $this->base_url.'/google.png');
-
-				pagelines_register_hook( 'pagelines_branding_icons_end', 'branding' ); // Hook
-
-			}
+			pagelines_register_hook( 'pagelines_branding_icons_end', 'branding' ); // Hook
 
 		echo '</div></div>';
 
@@ -207,11 +197,11 @@ class MultilingualBranding extends PageLinesSection {
 <?php
 
 	}
-	
+
 		function section_optionator( $settings ){
-		
+
 		$settings = wp_parse_args($settings, $this->optionator_default);
-					
+
 		$options = array(
 
 			//language 1 settings
@@ -362,16 +352,16 @@ class MultilingualBranding extends PageLinesSection {
 		);
 
 			$tab_settings = array(
-			
-			'id'		=> 'multilingual_branding_options', 
-			'name'		=> 'Multilingual Branding', 
-			'icon'		=> $this->icon, 
-			'clone_id'	=> $settings['clone_id'], 
+
+			'id'		=> 'multilingual_branding_options',
+			'name'		=> 'Multilingual Branding',
+			'icon'		=> $this->icon,
+			'clone_id'	=> $settings['clone_id'],
 			'active'	=> $settings['active']
 		);
-		
+
 		register_metatab($tab_settings, $options, $this->class_name);
-			
+
 	}
-	
+
 }
