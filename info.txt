@@ -9,6 +9,9 @@ Please do not leave a review as a support question, they are for reviews. I am n
 
 == Changelog ==
 
+= 1.4 =
+* Ready for PageLines DMS
+
 = 1.3 =
 * LESSified it
 * Fixed styling for icons opacity
